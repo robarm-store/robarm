@@ -3,23 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - RobArm Store</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>RobArm - Welcome</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+        }
+        .terms-container {
+            text-align: center;
+        }
+        a {
+            color: blue;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+        button {
+            padding: 10px 20px;
+            margin-top: 10px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <h1>Rob<span style="color:red;">A</span><span style="color:blue;">r</span><span style="color:orange;">m</span></h1>
-    </header>
-    <nav>
-        <a href="index.html">Home</a>
-        <a href="products.html">Products</a>
-        <a href="contact.html">Contact Us</a>
-    </nav>
-    <div class="container">
-        <h2>Welcome to RobArm Store</h2>
-        <p>Your one-stop shop for fun and functional gadgets and toys!</p>
-        <p>Explore our collection and find something you'll love.</p>
-        <a href="products.html" style="display: inline-block; margin-top: 20px; background-color: #007bff; color: white; padding: 10px 20px; text-decoration: none; border-radius: 5px;">Browse Products</a>
+    <div class="terms-container">
+        <h1 style="font-size: 52px; font-family: copperplate;">
+            Rob<span style="color:red;">A</span><span style="color:blue;">r</span><span style="color:orange;">m</span>
+        </h1>
+        <label>
+            <input type="checkbox" id="agree-checkbox"> I agree to the <a href="#">terms and conditions</a> of our website.
+        </label>
+        <br>
+        <button id="proceed-button" disabled>Proceed to Home</button>
     </div>
+    <script>
+        const checkbox = document.getElementById('agree-checkbox');
+        const button = document.getElementById('proceed-button');
+
+        checkbox.addEventListener('change', () => {
+            button.disabled = !checkbox.checked;
+        });
+
+        button.addEventListener('click', () => {
+            if (checkbox.checked) {
+                window.location.href = 'home.html';
+            }
+        });
+    </script>
 </body>
 </html>
